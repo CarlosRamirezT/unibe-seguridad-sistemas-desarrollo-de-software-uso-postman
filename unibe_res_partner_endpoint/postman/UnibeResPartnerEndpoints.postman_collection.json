@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "f21e003f-c650-4689-9e47-5327c41edbee",
+		"name": "Unibe Res Partner Endpoints (JSON) - Con Body Vacío",
+		"description": "Colección para probar los endpoints definidos en el módulo unibe_res_partner_endpoint de Odoo, con body '{}' en los endpoints GET y DELETE.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17589407"
+	},
+	"item": [
+		{
+			"name": "0) Login to Odoo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"params\": {\n    \"db\": \"unibe-security\",\n    \"login\": \"endpoint_user\",\n    \"password\": \"secure_password\"\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/session/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"session",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1) List All Partners (GET)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/unibe_res_partner_endpoint/partners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"unibe_res_partner_endpoint",
+						"partners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2) Get Partner by ID (GET)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/unibe_res_partner_endpoint/partners/{{partner_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"unibe_res_partner_endpoint",
+						"partners",
+						"{{partner_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3) Create Partner (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"New Partner\",\n  \"email\": \"new@example.com\",\n  \"phone\": \"1234567890\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/unibe_res_partner_endpoint/partners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"unibe_res_partner_endpoint",
+						"partners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4) Update Partner (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Partner\",\n  \"email\": \"updated@example.com\",\n  \"phone\": \"0987654321\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/unibe_res_partner_endpoint/partners/{{partner_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"unibe_res_partner_endpoint",
+						"partners",
+						"{{partner_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5) Delete Partner (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/unibe_res_partner_endpoint/partners/{{partner_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"unibe_res_partner_endpoint",
+						"partners",
+						"{{partner_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "partner_id",
+			"value": "1"
+		}
+	]
+}
